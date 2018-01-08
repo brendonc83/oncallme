@@ -13,4 +13,4 @@ class OnCallPeriod(models.Model):
     week_ending = models.DateField('week ending')
     start_date = models.DateField('start date')
     end_date = models.DateField('end date')
-    hours = models.IntegerField(default=0)
+    days = models.IntegerField(default=0)
