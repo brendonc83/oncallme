@@ -8,3 +8,7 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Welcome to index")
+
+
+def user_detail(request, u_id):
+    return HttpResponse("This is the user %s." % u_id)
