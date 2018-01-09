@@ -1,8 +1,10 @@
 # oncallme
 
-Visualise your starva stats
+An app to log your on call hours.
 
-I'm trying to learn python and django. What better way than to write something that you can use while you learn.
+Database - PostGreSQL
+Web Framework - Django
+Frontend - Bootstrap
 
 WIP
 
@@ -22,6 +24,7 @@ In order to install mock you may need to update your versions of pip, wheel and 
 $ pip install -U pip wheel setuptools
 ```
 
+```
 python manage.py makemigrations
 python manage.py migrate
 python manage.py collectstatic
