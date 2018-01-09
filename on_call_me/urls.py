@@ -18,4 +18,6 @@ from on_call_me import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    #ex oncallme/U009835/
+    path('<str:u_id>/', views.user_detail, name='user_detail'),
 ]
