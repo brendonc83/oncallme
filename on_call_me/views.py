@@ -9,6 +9,7 @@ from .models import TeamMember
 def index(request):
     return HttpResponse("Welcome to index")
 
+
 """
 # Provide the username and get user details
 def user_detail(request, u_id):
@@ -19,7 +20,6 @@ def user_detail(request, u_id):
         raise Http404("TeamMember does not exist")
     return render(request, 'on_call_me/index.html', context)
 """
-
 
 """
 # Provide the username and get user details
