@@ -17,9 +17,9 @@ from django.urls import path
 from . import views
 
 
-
 urlpatterns = [
-    path('', views.index, name='index'),
-    #ex oncallme/U009835/
-    path('<str:pk>/', views.TeamMemberDetailView.as_view(), name='index')
+    path('index', views.index, name='index'),
+    path('', views.login, name='login'),
+    path('login', views.login, name='login'),
+
 ]

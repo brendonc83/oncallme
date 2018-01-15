@@ -2,8 +2,14 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.template import Context, loader
 from django.views import generic
-from .models import TeamMember
+from .models import User
+
+
+def login(request):
+    template = loader.get_template('on_call_me/login.html')
+    return HttpResponse(template.render())
 
 
 def index(request):
@@ -29,9 +35,3 @@ def user_detail(request, u_id):
     context = {'user_info': user_info}
     return render(request, 'on_call_me/index.html', context)
 """
-
-
-class TeamMemberDetailView(generic.DetailView):
-
-    model = TeamMember
-    template_name = 'on_call_me/index.html'
