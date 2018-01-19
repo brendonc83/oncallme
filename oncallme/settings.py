@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'on_call_me.apps.OnCallMeConfig',
 ]
 
+AUTH_USER_MODEL = 'on_call_me.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,7 +87,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -123,3 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/index'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
