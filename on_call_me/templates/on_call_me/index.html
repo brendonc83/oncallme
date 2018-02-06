@@ -1,15 +1,18 @@
 {% extends 'on_call_me/base.html' %}
+{% load staticfiles %}
 
-{% block title %}Home{% endblock %}
+<html>
 
-{% block content %}
-    {% if user.is_authenticated %}
-        Username is {{ user.username }}!<br>
-        Name is {{ user.first_name }}<br>
-        Full Name is {{ user.full_name }}<br>
-        Email is {{ user.email }}
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
-    {% endif %}
-{% endblock %}
+<head>
+    {% block include %}
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'on_call_me/css/base.css' %}" rel="stylesheet">
+
+    {% endblock %}
+
+
+</head>
+
+
+</html>
