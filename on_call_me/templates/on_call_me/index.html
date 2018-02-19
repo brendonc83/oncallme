@@ -11,8 +11,93 @@
 
     {% endblock %}
 
+    {% block title %}
+        <title>
+            Home
+        </title>
+    {% endblock %}
 
 </head>
 
+<body>
+
+<div class="container">
+    {% block form %}
+        <h3 class="heading">Enter Your On Call Days</h3>
+
+        <form action="{% url 'user-list' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group ">
+                <label class="control-label requiredField" for="startdate">
+                    Start Date
+                    <span class="asteriskField">
+        *
+       </span>
+                </label>
+                <div class="input-group date" id="startdate">
+                    <input class="form-control" placeholder="DD/MM/YYYY" type="text"/>
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label requiredField" for="date">
+                    End Date
+                    <span class="asteriskField">
+        *
+       </span>
+                </label>
+                <div class="input-group date" id="enddate">
+                    <input class="form-control" placeholder="DD/MM/YYYY" type="text"/>
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="control-label requiredField" for="numberofdays">
+                    Number Of Days
+                    <span class="asteriskField">
+        *
+       </span>
+                </label>
+                <input class="form-control" id="numberofdays" name="numberofdays" type="text"/>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button class="btn btn-primary " name="submit" type="submit">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    {% endblock %}
+
+</div>
+{% block script %}
+
+
+    <script>
+        $(document).ready(function () {
+            $('.input-group#startdate').datepicker({
+                format: 'dd/mm/yyyy',
+                container: '.container form',
+                todayHighlight: true,
+                autoclose: true,
+                orientation: 'bottom left',
+            });
+            $('.input-group#enddate').datepicker({
+                format: 'dd/mm/yyyy',
+                container: '.container form',
+                todayHighlight: true,
+                autoclose: true,
+                orientation: 'bottom left',
+            });
+        })
+    </script>
+{% endblock %}
+</body>
 
 </html>
