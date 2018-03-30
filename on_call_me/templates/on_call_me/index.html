@@ -4,12 +4,6 @@
 <html>
 
 <head>
-    {% block include %}
-
-        <!-- Custom styles for this template -->
-        <link href="{% static 'on_call_me/css/base.css' %}" rel="stylesheet">
-
-    {% endblock %}
 
     {% block title %}
         <title>
@@ -17,70 +11,133 @@
         </title>
     {% endblock %}
 
+
+    {% block custom_css %}
+
+        <link href="static/on_call_me/css/index.css " rel="stylesheet">
+
+    {% endblock %}
+
+
 </head>
 
 <body>
 
-<div class="container">
-    {% block form %}
-        <h3 class="heading">Enter Your On Call Days</h3>
+{% block container %}
 
-        <form action="{% url 'user-list' %}" method="post">
-            {% csrf_token %}
-            <div class="form-group ">
-                <label class="control-label requiredField" for="startdate">
-                    Start Date
-                    <span class="asteriskField">
+
+    <div class="container">
+        {% block form %}
+            <h3 class="heading">Enter Your On Call Days</h3>
+
+            <form action={% url 'index' %} method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <!-- team member-->
+
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="teammember">
+                        Team Member
+                        {{ form.team_member.errors }}
+                        <span class="asteriskField">
         *
        </span>
-                </label>
-                <div class="input-group date" id="startdate">
-                    <input class="form-control" placeholder="DD/MM/YYYY" type="text"/>
-                    <div class="input-group-addon">
-                        <span class="fa fa-calendar-alt"></span>
+                    </label>
+
+                    {{ form.team_member }}
+
+                </div>
+
+                <!-- Week Ending -->
+
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="weekending">
+                        Week Ending
+                        <span class="asteriskField">
+        *
+       </span>
+                        {{ form.week_ending.errors }}
+                    </label>
+                    <div class="input-group date" id="weekending">
+                        {{ form.week_ending }}
+                        <div class="input-group-addon">
+                            <span class="fa fa-calendar-alt"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group ">
-                <label class="control-label requiredField" for="date">
-                    End Date
-                    <span class="asteriskField">
+
+                <!-- start date -->
+
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="startdate">
+                        Start Date
+                        <span class="asteriskField">
         *
-       </span>
-                </label>
-                <div class="input-group date" id="enddate">
-                    <input class="form-control" placeholder="DD/MM/YYYY" type="text"/>
-                    <div class="input-group-addon">
-                        <span class="fa fa-calendar-alt"></span>
+       </span> {{ form.start_date.errors }}
+                    </label>
+                    <div class="input-group date" id="startdate">
+                        {{ form.start_date }}
+                        <div class="input-group-addon">
+                            <span class="fa fa-calendar-alt"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group ">
-                <label class="control-label requiredField" for="numberofdays">
-                    Number Of Days
-                    <span class="asteriskField">
+
+                <!-- End date -->
+
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="enddate">
+                        End Date
+                        <span class="asteriskField">
         *
-       </span>
-                </label>
-                <input class="form-control" id="numberofdays" name="numberofdays" type="text"/>
-            </div>
-            <div class="form-group">
-                <div>
-                    <button class="btn btn-primary " name="submit" type="submit">
-                        Submit
-                    </button>
+       </span> {{ form.end_date.errors }}
+                    </label>
+                    <div class="input-group date" id="enddate">
+                        {{ form.end_date }}
+                        <div class="input-group-addon">
+                            <span class="fa fa-calendar-alt"></span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </form>
 
-    {% endblock %}
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="numberofdays">
+                        Number Of Days
+                        <span class="asteriskField">
+        *
+       </span> {{ form.days.errors }}
+                    </label>
+                    {{ form.days }}
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary " name="submit" type="submit" value="save">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
 
-</div>
+        {% endblock %}
+
+    </div> <!-- end container -->
+
+
+{% endblock %}
+
+
 {% block script %}
 
 
     <script>
         $(document).ready(function () {
+            $('.input-group#weekending').datepicker({
+                format: 'dd/mm/yyyy',
+                container: '.container form',
+                todayHighlight: true,
+                autoclose: true,
+                orientation: 'bottom left',
+            });
             $('.input-group#startdate').datepicker({
                 format: 'dd/mm/yyyy',
                 container: '.container form',
@@ -97,6 +154,7 @@
             });
         })
     </script>
+
 {% endblock %}
 </body>
 

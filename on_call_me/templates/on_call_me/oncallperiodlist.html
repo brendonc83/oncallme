@@ -15,7 +15,7 @@
 
     {% block title %}
 
-    <title>User List</title>
+    <title>On Call Period List</title>
 
     {% endblock %}
 
@@ -36,8 +36,10 @@
 <div class="container">
 
     <ul>
-        {% for user in user_list %}
-            <li>{{ user.get_full_name }} - {{ user.username }}</li>
+        {% for oncallperiod in oncallperiod_list %}
+            <li>Team Member: {{ oncallperiod.team_member }}</li>
+            <li>end date: {{ oncallperiod.end_date }}</li>
+            <li>start date: {{ oncallperiod.start_date }}</li>
         {% endfor %}
     </ul>
 
@@ -53,19 +55,7 @@
 <script src="/static/on_call_me/js/popper.js"></script>
 <script src="/static/on_call_me/js/bootstrap-datepicker.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        var date_input = $('input[name="date"]'); //our date input has the name "date"
-        var container = $('.container form').length > 0 ? $('.container form').parent() : "body";
-        var options = {
-            format: 'dd/mm/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        };
-        date_input.datepicker(options);
-    })
-</script>
+
 
 </body>
 </html>

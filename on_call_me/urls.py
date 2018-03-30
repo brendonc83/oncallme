@@ -18,15 +18,17 @@ from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 from on_call_me.forms import LoginForm
 from on_call_me.views import UserListView
+from on_call_me.views import OnCallPeriodCreateView
+from on_call_me.views import OnCallPeriodListView
 
 
 urlpatterns = [
-    path('index', views.index, name='index'),
-    #path('oncallperiods', views.oncallperiods, name='oncallperiods'),
+    #path('index', views.index, name='index'),
     path('', LoginView.as_view(template_name='on_call_me/login.html'), name='no_url_login'),
     path('accounts/login/', LoginView.as_view(template_name='on_call_me/login.html', authentication_form=LoginForm),
          name='login'),
     path('accounts/logout/', LogoutView.as_view(), name='logout'),
     path('userlist', UserListView.as_view(), name='user-list'),
-
+    path('index', OnCallPeriodCreateView.as_view(), name='index'),
+    path('oncallperiodlist', OnCallPeriodListView.as_view(), name='oncallperiod-list'),
 ]

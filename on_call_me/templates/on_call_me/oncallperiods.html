@@ -1,0 +1,30 @@
+{% extends 'on_call_me/base.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+        <title>On Call Periods</title>
+    {% endblock %}
+
+</head>
+<body>
+
+{% block container %}
+<div class="container">
+
+    <ul>
+        {% for user in user_list %}
+            <li>{{ user.get_full_name }} - {{ user.username }}</li>
+        {% endfor %}
+    </ul>
+
+</div><!-- end container -->
+{% endblock %}
+
+
+</body>
+</html>
