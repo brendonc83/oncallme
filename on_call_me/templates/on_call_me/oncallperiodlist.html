@@ -15,35 +15,49 @@
 
     {% block title %}
 
-    <title>On Call Period List</title>
+        <title>On Call Period List</title>
 
     {% endblock %}
 
     <!-- Bootstrap core CSS -->
     <link href="static/on_call_me/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    {% block custom_css %}
+
+        <link href="static/on_call_me/css/oncallperiodlist.css" rel="stylesheet">
+
+    {% endblock %}
 
 </head>
 
 <body>
 
 {% block container %}
-<div class="container">
+    <div class="container">
 
-    <ul>
-        {% for oncallperiod in oncallperiod_list %}
-            <li>Team Member: {{ oncallperiod.team_member }}</li>
-            <li>end date: {{ oncallperiod.end_date }}</li>
-            <li>start date: {{ oncallperiod.start_date }}</li>
-        {% endfor %}
-    </ul>
-
-</div><!-- /.container -->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>On Call Period End Date</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for oncallperiod in oncallperiod_list %}
+                <tr>
+                    <td ></td>
+                    <td>{{ oncallperiod.team_member }}</td>
+                    <td>{{ oncallperiod.team_member.get_full_name }}</td>
+                    <td>{{ oncallperiod.end_date }}</td>
+                    <td><span class="fa fa-edit"></span></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- /.container -->
 {% endblock %}
 
 <!-- Bootstrap core JavaScript
@@ -54,7 +68,6 @@
 <script src="/static/on_call_me/js/bootstrap.min.js"></script>
 <script src="/static/on_call_me/js/popper.js"></script>
 <script src="/static/on_call_me/js/bootstrap-datepicker.min.js"></script>
-
 
 
 </body>
