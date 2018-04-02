@@ -22,9 +22,9 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
                                                                   'class': 'form-control'}))
 
     week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
-                                  widget=forms.DateInput(attrs={'type': 'text',
-                                                                'class': 'form-control',
-                                                                'placeholder': 'DD/MM/YYYY'}))
+                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
+                                                                                   'class': 'form-control',
+                                                                                   'placeholder': 'DD/MM/YYYY'}))
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
@@ -42,3 +42,27 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
     class Meta:
         model = OnCallPeriod
         fields = ('team_member', 'week_ending', 'start_date', 'end_date', 'days',)
+
+
+class UpdateOnCallPeriodsForm(forms.ModelForm):
+    week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
+                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
+                                                                                   'class': 'form-control',
+                                                                                   'placeholder': 'DD/MM/YYYY'}))
+
+    start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
+                                 widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
+                                                                                  'class': 'form-control',
+                                                                                  'placeholder': 'DD/MM/YYYY'}))
+
+    end_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
+                               widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
+                                                                                'class': 'form-control',
+                                                                                'placeholder': 'DD/MM/YYYY'}))
+
+    days = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'number',
+                                                              'class': 'form-control'}))
+
+    class Meta:
+        model = OnCallPeriod
+        fields = ('week_ending', 'start_date', 'end_date', 'days',)

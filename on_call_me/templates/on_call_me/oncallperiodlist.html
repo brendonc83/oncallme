@@ -19,9 +19,6 @@
 
     {% endblock %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="static/on_call_me/css/bootstrap.min.css" rel="stylesheet">
-
     {% block custom_css %}
 
         <link href="static/on_call_me/css/oncallperiodlist.css" rel="stylesheet">
@@ -52,7 +49,7 @@
                     <td>{{ oncallperiod.team_member }}</td>
                     <td>{{ oncallperiod.team_member.get_full_name }}</td>
                     <td>{{ oncallperiod.end_date }}</td>
-                    <td><span class="fa fa-edit"></span></td>
+                    <td><a href="{% url 'update-oncallperiod' oncallperiod.id %}"><span class="fa fa-edit"></span></a></td>
                 </tr>
             {% endfor %}
             </tbody>
