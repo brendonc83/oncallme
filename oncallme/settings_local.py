@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,9 +75,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'oncallme.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'oncallmedb',
+        'USER': PG_USER,
+        'PASSWORD': PG_PWD,
+        'HOST': 'localhost',
+        'PORT': 5432,
+    }
 }
 
 # Password validation
