@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django import forms
 from on_call_me.fields import UserModelChoiceField
 from on_call_me.models import OnCallPeriod
@@ -8,12 +8,16 @@ from django.conf import settings
 
 # If you don't do this you cannot use Bootstrap CSS
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(label="Username", max_length=30,
-                               widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control',
-                                                             'name': 'username'}))
-    password = forms.CharField(label="Password", max_length=30,
-                               widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control',
-                                                             'name': 'password'}))
+    username = UsernameField(
+        max_length=254,
+        widget=forms.TextInput(attrs={'autofocus': True, 'class': 'form-control', 'placeholder': "Username",
+                                      'type': 'text'}),
+    )
+
+    password = forms.CharField(
+        strip=False,
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', 'type': 'password'}),
+    )
 
 
 class CreateOnCallPeriodsForm(forms.ModelForm):

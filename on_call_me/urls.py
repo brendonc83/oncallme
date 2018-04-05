@@ -25,7 +25,9 @@ from on_call_me.views import OnCallPeriodListView
 
 urlpatterns = [
     #path('index', views.index, name='index'),
-    path('', LoginView.as_view(template_name='on_call_me/login.html'), name='no_url_login'),
+    #path('', LoginView.as_view(template_name='on_call_me/login.html'), name='no_url_login'),
+    path('', LoginView.as_view(template_name='on_call_me/login.html', authentication_form=LoginForm),
+         name='login-home'),
     path('accounts/login/', LoginView.as_view(template_name='on_call_me/login.html', authentication_form=LoginForm),
          name='login'),
     path('accounts/logout/', LogoutView.as_view(), name='logout'),
