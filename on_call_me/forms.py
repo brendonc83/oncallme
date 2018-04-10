@@ -4,6 +4,7 @@ from on_call_me.fields import UserModelChoiceField
 from on_call_me.models import OnCallPeriod
 from .models import User
 from django.conf import settings
+from on_call_me.views import CreateView
 
 
 # If you don't do this you cannot use Bootstrap CSS
@@ -21,9 +22,6 @@ class LoginForm(AuthenticationForm):
 
 
 class CreateOnCallPeriodsForm(forms.ModelForm):
-    team_member = UserModelChoiceField(queryset=User.objects.exclude(username='admin'),
-                                       widget=forms.Select(attrs={'type': 'text',
-                                                                  'class': 'form-control'}))
 
     week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
                                   widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
@@ -45,7 +43,7 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
 
     class Meta:
         model = OnCallPeriod
-        fields = ('team_member', 'week_ending', 'start_date', 'end_date', 'days',)
+        fields = ('week_ending', 'start_date', 'end_date', 'days',)
 
 
 class UpdateOnCallPeriodsForm(forms.ModelForm):
