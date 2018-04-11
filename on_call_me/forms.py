@@ -1,13 +1,9 @@
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django import forms
-from on_call_me.fields import UserModelChoiceField
 from on_call_me.models import OnCallPeriod
-from .models import User
 from django.conf import settings
-from on_call_me.views import CreateView
 
 
-# If you don't do this you cannot use Bootstrap CSS
 class LoginForm(AuthenticationForm):
     username = UsernameField(
         max_length=254,

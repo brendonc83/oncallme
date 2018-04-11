@@ -5,112 +5,97 @@
 
 <head>
 
-    {% block title %}
-        <title>
-            Home
-        </title>
-    {% endblock %}
+    {% block title %}Home{% endblock %}
 
 
     {% block custom_css %}
-
-        <link href="static/on_call_me/css/base.css " rel="stylesheet">
-
-    {% endblock %}
+        <link href="static/on_call_me/css/base.css " rel="stylesheet">{% endblock %}
 
 
 </head>
 
 <body>
 
+
 {% block container %}
 
+    <div class="jumbotron">
+        <h3 class="heading">Enter Your On Call Days</h3>
+        <form action={% url 'index' %} method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
 
-    <div class="container">
-        <div class="jumbotron">
-            {% block form %}
-                <h3 class="heading">Enter Your On Call Days</h3>
+            <!-- Week Ending -->
 
-                <form action={% url 'index' %} method="post">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    
-                    <!-- Week Ending -->
-
-                    <div class="form-group ">
-                        <label class="control-label requiredField" for="weekending">
-                            Week Ending
-                            <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="weekending">
+                    Week Ending
+                    <span class="asteriskField">
         *
        </span>
-                            {{ form.week_ending.errors }}
-                        </label>
-                        <div class="input-group date" id="weekending">
-                            {{ form.week_ending }}
-                            <div class="input-group-addon">
-                                <span class="fa fa-calendar-alt"></span>
-                            </div>
-                        </div>
+                    {{ form.week_ending.errors }}
+                </label>
+                <div class="input-group date" id="weekending">
+                    {{ form.week_ending }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
+                </div>
+            </div>
 
-                    <!-- start date -->
+            <!-- start date -->
 
-                    <div class="form-group ">
-                        <label class="control-label requiredField" for="startdate">
-                            Start Date
-                            <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="startdate">
+                    Start Date
+                    <span class="asteriskField">
         *
        </span> {{ form.start_date.errors }}
-                        </label>
-                        <div class="input-group date" id="startdate">
-                            {{ form.start_date }}
-                            <div class="input-group-addon">
-                                <span class="fa fa-calendar-alt"></span>
-                            </div>
-                        </div>
+                </label>
+                <div class="input-group date" id="startdate">
+                    {{ form.start_date }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
+                </div>
+            </div>
 
-                    <!-- End date -->
+            <!-- End date -->
 
-                    <div class="form-group ">
-                        <label class="control-label requiredField" for="enddate">
-                            End Date
-                            <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="enddate">
+                    End Date
+                    <span class="asteriskField">
         *
        </span> {{ form.end_date.errors }}
-                        </label>
-                        <div class="input-group date" id="enddate">
-                            {{ form.end_date }}
-                            <div class="input-group-addon">
-                                <span class="fa fa-calendar-alt"></span>
-                            </div>
-                        </div>
+                </label>
+                <div class="input-group date" id="enddate">
+                    {{ form.end_date }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group ">
-                        <label class="control-label requiredField" for="numberofdays">
-                            Number Of Days
-                            <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="numberofdays">
+                    Number Of Days
+                    <span class="asteriskField">
         *
        </span> {{ form.days.errors }}
-                        </label>
-                        {{ form.days }}
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <button class="btn btn-primary " name="submit" type="submit" value="save">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-            {% endblock %}
-        </div>
-    </div> <!-- end container -->
-
-
-{% endblock %}
+                </label>
+                {{ form.days }}
+            </div>
+            <div class="form-group">
+                <div>
+                    <button class="btn btn-primary " name="submit" type="submit" value="save">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock container %}
 
 
 {% block script %}

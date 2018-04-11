@@ -9,20 +9,18 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    {% block title %}
 
-    <title>Base Template</title>
+    <title>{% block title %} Base Template {% endblock %}</title>
 
-    {% endblock %}
 
     <!-- Bootstrap core CSS -->
     <link href="/static/on_call_me/css/bootstrap.min.css" rel="stylesheet">
 
     {% block custom_css %}
 
-    <link href="/static/on_call_me/css/base.css " rel="stylesheet">
+        <link href="/static/on_call_me/css/base.css " rel="stylesheet">
 
-    {% endblock %}
+    {% endblock custom_css %}
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -43,43 +41,56 @@
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'index' %}">OnCallMe</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            {% if user.is_authenticated %}
-                <form class="navbar-form navbar-right" action="{% url 'logout' %}">
-                    <button type="submit" class="btn btn-success">logout</button>
-                </form>
-            {% else %}
-                <form class="navbar-form navbar-right" action="{% url 'login' %}">
-                    <button type="submit" class="btn btn-success">login</button>
-                </form>
-            {% endif %}
-            <a class="navbar-brand navbar-right"> {{ user.get_full_name }} </a>
-        </div><!--/.navbar-collapse -->
-    </div>
-</nav>
+{#<nav class="navbar navbar-inverse navbar-fixed-top">#}
+{#    <div class="container-fluid">#}
+{#        <div class="navbar-header">#}
+{#            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"#}
+{#                    aria-expanded="false" aria-controls="navbar">#}
+{#                <span class="sr-only">Toggle navigation</span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#            </button>#}
+{#            <a class="navbar-brand" href="{% url 'index' %}">OnCallMe</a>#}
+{#        </div>#}
+{#        <div id="navbar" class="navbar-collapse collapse">#}
+{#            {% if user.is_authenticated %}#}
+{#                <form class="navbar-form navbar-right" action="{% url 'logout' %}">#}
+{#                    <button type="submit" class="btn btn-success">logout</button>#}
+{#                </form>#}
+{#            {% else %}#}
+{#                <form class="navbar-form navbar-right" action="{% url 'login' %}">#}
+{#                    <button type="submit" class="btn btn-success">login</button>#}
+{#                </form>#}
+{#            {% endif %}#}
+{#            <a class="navbar-brand navbar-right"> {{ user.get_full_name }} </a>#}
+{#        </div><!--/.navbar-collapse -->#}
+{#    </div>#}
+{#</nav>#}
 
-{% block container %}
 <div class="container">
 
-    {% block form %}
+    <div class="header clearfix">
+        {% block header %}
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="{% url 'index' %}">home</a></li>
+                    <li role="presentation"><a href="#">my list</a></li>
+                    {% if user.is_authenticated %}
+                        <li role="presentation"><a href="{% url 'logout' %}">logout</a></li>
+                    {% else %}
+                        <li role="presentation"><a href="{% url 'login' %}">logout</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <h3 class="text-muted">oncallme</h3>
+        {% endblock %}
+    </div>
 
-    {% endblock %}
+    {% block container %}
 
-
-</div><!-- /.container -->
-{% endblock %}
+    {% endblock container %}
+</div> <!-- end block -->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
