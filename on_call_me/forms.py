@@ -20,11 +20,10 @@ class LoginForm(AuthenticationForm):
 
 
 class CreateOnCallPeriodsForm(forms.ModelForm):
-
-    week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
-                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
-                                                                                   'class': 'form-control',
-                                                                                   'placeholder': 'DD/MM/YYYY'}))
+    # week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
+    #                               widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
+    #                                                                                'class': 'form-control',
+    #                                                                                'placeholder': 'DD/MM/YYYY'}))
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
@@ -51,7 +50,7 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
 
     class Meta:
         model = OnCallPeriod
-        fields = ('week_ending', 'start_date', 'end_date', 'days',)
+        fields = ('start_date', 'end_date', 'days',)
 
 
 class UpdateOnCallPeriodsForm(forms.ModelForm):
@@ -72,6 +71,16 @@ class UpdateOnCallPeriodsForm(forms.ModelForm):
 
     days = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'number',
                                                               'class': 'form-control'}))
+
+    def clean(self):
+        cleaned_data = super(UpdateOnCallPeriodsForm, self).clean()
+        end_date = cleaned_data.get('end_date')
+        start_date = cleaned_data.get('start_date')
+
+        if end_date and start_date:
+            if end_date < start_date:
+                raise ValidationError(_('End date cannot be before the start date'), code='invalid')
+        return cleaned_data
 
     class Meta:
         model = OnCallPeriod

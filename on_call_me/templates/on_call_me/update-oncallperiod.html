@@ -5,110 +5,134 @@
 
 <head>
 
-    {% block title %}
-        <title>
-            Update On Call Period
-        </title>
-    {% endblock %}
+    {% block title %}Update{% endblock %}
 
 
     {% block custom_css %}
-
-        <link href="/static/on_call_me/css/update-oncallperiod.css " rel="stylesheet">
-
-    {% endblock %}
+        <link href="/static/on_call_me/css/base.css " rel="stylesheet">{% endblock %}
 
 
 </head>
 
 <body>
 
+
 {% block container %}
 
+    <div class="jumbotron">
+        <h3 class="heading">Enter Your On Call Days</h3>
+        <form action=" " method="post">
+            {% csrf_token %}
 
-    <div class="container">
-        {% block form %}
-            <h3 class="heading">{{ oncallperiod.team_member.first_name }}, update your details</h3>
+            {% if form.errors %}
 
-            <form action=" " method="post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.non_field_errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
 
-                <!-- Week Ending -->
+            {% endif %}
 
-                <div class="form-group ">
-                    <label class="control-label requiredField" for="weekending">
-                        Week Ending
-                        <span class="asteriskField">
+            <!-- Week Ending -->
+
+            <div class="form-group ">
+                <label class="control-label requiredField" for="weekending">
+                    Week Ending
+                    <span class="asteriskField">
         *
-       </span> {{ form.week_ending.errors }}
-                    </label>
-                    <div class="input-group date" id="weekending">
-                        {{ form.week_ending }}
-                        <div class="input-group-addon">
-                            <span class="fa fa-calendar-alt"></span>
-                        </div>
+       </span>
+                </label>
+
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ form.week_ending.errors }}
+                    </div>
+                {% endfor %}
+
+                <div class="input-group date" id="weekending">
+                    {{ form.week_ending }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
                 </div>
+            </div>
 
-                <!-- start date -->
+            <!-- start date -->
 
-                <div class="form-group ">
-                    <label class="control-label requiredField" for="startdate">
-                        Start Date
-                        <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="startdate">
+                    Start Date
+                    <span class="asteriskField">
         *
-       </span> {{ form.start_date.errors }}
-                    </label>
-                    <div class="input-group date" id="startdate">
-                        {{ form.start_date }}
-                        <div class="input-group-addon">
-                            <span class="fa fa-calendar-alt"></span>
-                        </div>
+       </span>
+                </label>
+
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ form.start_date.errors }}
+                    </div>
+                {% endfor %}
+
+                <div class="input-group date" id="startdate">
+                    {{ form.start_date }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
                 </div>
+            </div>
 
-                <!-- End date -->
+            <!-- End date -->
 
-                <div class="form-group ">
-                    <label class="control-label requiredField" for="enddate">
-                        End Date
-                        <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="enddate">
+                    End Date
+                    <span class="asteriskField">
         *
-       </span> {{ form.end_date.errors }}
-                    </label>
-                    <div class="input-group date" id="enddate">
-                        {{ form.end_date }}
-                        <div class="input-group-addon">
-                            <span class="fa fa-calendar-alt"></span>
-                        </div>
+       </span>
+                </label>
+
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ form.end_date.errors }}
+                    </div>
+                {% endfor %}
+
+                <div class="input-group date" id="enddate">
+                    {{ form.end_date }}
+                    <div class="input-group-addon">
+                        <span class="fa fa-calendar-alt"></span>
                     </div>
                 </div>
+            </div>
 
-                <div class="form-group ">
-                    <label class="control-label requiredField" for="numberofdays">
-                        Number Of Days
-                        <span class="asteriskField">
+            <div class="form-group ">
+                <label class="control-label requiredField" for="numberofdays">
+                    Number Of Days
+                    <span class="asteriskField">
         *
-       </span> {{ form.days.errors }}
-                    </label>
-                    {{ form.days }}
-                </div>
-                <div class="form-group">
-                    <div>
-                        <button class="btn btn-primary " name="submit" type="submit" value="update">
-                            Submit
-                        </button>
+       </span>
+                </label>
+
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ form.days.errors }}
                     </div>
+                {% endfor %}
+                {{ form.days }}
+            </div>
+            <div class="form-group">
+                <div>
+                    <button class="btn btn-primary " name="submit" type="submit" value="save">
+                        Submit
+                    </button>
                 </div>
-            </form>
-
-        {% endblock %}
-
-    </div> <!-- end container -->
-
-
-{% endblock %}
+            </div>
+        </form>
+    </div>
+{% endblock container %}
 
 
 {% block script %}
