@@ -40,7 +40,7 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
                                                               'class': 'form-control'}))
 
     def clean(self):
-        cleaned_data = self.cleaned_data
+        cleaned_data = super(CreateOnCallPeriodsForm, self).clean()
         end_date = cleaned_data.get('end_date')
         start_date = cleaned_data.get('start_date')
 
