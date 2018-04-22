@@ -2,6 +2,8 @@ from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django import forms
 from on_call_me.models import OnCallPeriod
 from django.conf import settings
+from django.forms import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 class LoginForm(AuthenticationForm):
@@ -36,6 +38,16 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
 
     days = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'number',
                                                               'class': 'form-control'}))
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        end_date = cleaned_data.get('end_date')
+        start_date = cleaned_data.get('start_date')
+
+        if end_date and start_date:
+            if end_date < start_date:
+                raise ValidationError(_('End date cannot be before the start date'), code='invalid')
+        return cleaned_data
 
     class Meta:
         model = OnCallPeriod
