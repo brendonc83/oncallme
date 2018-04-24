@@ -20,10 +20,6 @@ class LoginForm(AuthenticationForm):
 
 
 class CreateOnCallPeriodsForm(forms.ModelForm):
-    # week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
-    #                               widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
-    #                                                                                'class': 'form-control',
-    #                                                                                'placeholder': 'DD/MM/YYYY'}))
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
@@ -34,9 +30,6 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
                                widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
                                                                                 'class': 'form-control',
                                                                                 'placeholder': 'DD/MM/YYYY'}))
-
-    days = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'number',
-                                                              'class': 'form-control'}))
 
     def clean(self):
         cleaned_data = super(CreateOnCallPeriodsForm, self).clean()
@@ -50,14 +43,10 @@ class CreateOnCallPeriodsForm(forms.ModelForm):
 
     class Meta:
         model = OnCallPeriod
-        fields = ('start_date', 'end_date', 'days',)
+        fields = ('start_date', 'end_date',)
 
 
 class UpdateOnCallPeriodsForm(forms.ModelForm):
-    week_ending = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
-                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
-                                                                                   'class': 'form-control',
-                                                                                   'placeholder': 'DD/MM/YYYY'}))
 
     start_date = forms.DateField(input_formats=settings.DATE_INPUT_FORMATS,
                                  widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
@@ -68,9 +57,6 @@ class UpdateOnCallPeriodsForm(forms.ModelForm):
                                widget=forms.DateInput(format='%d/%m/%Y', attrs={'type': 'text',
                                                                                 'class': 'form-control',
                                                                                 'placeholder': 'DD/MM/YYYY'}))
-
-    days = forms.IntegerField(widget=forms.NumberInput(attrs={'type': 'number',
-                                                              'class': 'form-control'}))
 
     def clean(self):
         cleaned_data = super(UpdateOnCallPeriodsForm, self).clean()
@@ -84,4 +70,4 @@ class UpdateOnCallPeriodsForm(forms.ModelForm):
 
     class Meta:
         model = OnCallPeriod
-        fields = ('week_ending', 'start_date', 'end_date', 'days',)
+        fields = ('start_date', 'end_date',)

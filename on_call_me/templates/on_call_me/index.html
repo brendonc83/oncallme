@@ -36,30 +36,6 @@
 
             {% endif %}
 
-            <!-- Week Ending -->
-
-{#            <div class="form-group ">#}
-{#                <label class="control-label requiredField" for="weekending">#}
-{#                    Week Ending#}
-{#                    <span class="asteriskField">#}
-{#        *#}
-{#       </span>#}
-{#                </label>#}
-{##}
-{#                {% for field in form %}#}
-{#                    <div class="form-group {% if field.errors %}has-error{% endif %}">#}
-{#                        {{ form.week_ending.errors }}#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{##}
-{#                <div class="input-group date" id="weekending">#}
-{#                    {{ form.week_ending }}#}
-{#                    <div class="input-group-addon">#}
-{#                        <span class="fa fa-calendar-alt"></span>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-
             <!-- start date -->
 
             <div class="form-group ">
@@ -140,13 +116,6 @@
 
     <script>
         $(document).ready(function () {
-            $('.input-group#weekending').datepicker({
-                format: 'dd/mm/yyyy',
-                container: '.container form',
-                todayHighlight: true,
-                autoclose: true,
-                orientation: 'bottom left',
-            });
             $('.input-group#startdate').datepicker({
                 format: 'dd/mm/yyyy',
                 container: '.container form',
