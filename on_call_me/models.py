@@ -12,3 +12,4 @@ class OnCallPeriod(models.Model):
     start_date = models.DateField('start date')
     end_date = models.DateField('end date')
     days = models.IntegerField(default=0)
+    processed = models.BooleanField(default=False)
