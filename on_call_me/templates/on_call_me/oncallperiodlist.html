@@ -1,7 +1,6 @@
 {% extends 'on_call_me/base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
@@ -11,7 +10,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
 
     {% block title %}
 
@@ -60,6 +58,11 @@
             {% endfor %}
             </tbody>
         </table>
+
+      <a class="btn btn-default" href="{% url 'email'%}" role="button">Generate Email</a>
+
+
+
     </div><!-- /.container -->
 {% endblock %}
 

@@ -1,0 +1,48 @@
+{% load static  %}
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/html" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;font-family: sans-serif;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-size: 14px;-webkit-tap-highlight-color: rgba(0,0,0,0);">
+<head style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
+  <meta charset="UTF-8" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
+  <title style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">Email</title>
+
+<!--  <link href="{% static '/on_call_me/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+
+</head>
+
+<body style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin: 0;padding-top: 20px;padding-bottom: 20px;font-family: &quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 18px;line-height: 1.42857143;color: #333;background-color: #fff;">
+
+<h3 style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;orphans: 3;widows: 3;page-break-after: avoid;font-family: inherit;font-weight: 500;line-height: 1.1;color: inherit;margin-top: 20px;margin-bottom: 10px;text-align: center;font-size: 24px;">Hi {{ user.first_name }}</h3>
+
+<p style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin-top: 10px;margin-bottom: 10px;text-align: center;">This is a test e-mail from oncallme</p>
+
+      <table class="table table-striped" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;border-spacing: 0;border-collapse: collapse;padding-right: 15px;padding-left: 15px;width: 70%;margin-left: 15%;margin-right: 15%;font-size: 14px;counter-reset: table;background-color: transparent;">
+            <thead style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;display: table-header-group;">
+            <tr style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;page-break-inside: avoid;">
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">#</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">User ID</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Full Name</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Start Date</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">End Date</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Week Ending</th>
+                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">No. Of Days</th>
+            </tr>
+            </thead>
+            <tbody style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
+            {% for oncallperiod in oncallperiodlist %}
+                <tr style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;page-break-inside: avoid;">
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;"></td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.team_member }}</td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.team_member.get_full_name }}</td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.start_date }}</td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.end_date }}</td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.week_ending }}</td>
+                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.days }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</body>
+</html>
