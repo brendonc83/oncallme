@@ -21,7 +21,7 @@
 
     <div class="jumbotron">
         <h3 class="heading">Enter Your On Call Days</h3>
-        <form action={% url 'index' %} method="post">
+        <form action={% url 'index' %} method="POST">
             {% csrf_token %}
 
             {% if form.errors %}
@@ -92,7 +92,7 @@
             </div>
         </form>
     </div>
-{% endblock container %}
+{% endblock %}
 
 
 {% block script %}

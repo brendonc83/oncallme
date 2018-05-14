@@ -13,6 +13,10 @@ table td:first-child::before {
     content: counter(table);
 }
 
+button {
+    float: right;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

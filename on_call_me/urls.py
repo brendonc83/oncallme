@@ -21,13 +21,14 @@ from on_call_me.views import UserListView
 from on_call_me.views import OnCallPeriodCreateView
 from on_call_me.views import OnCallPeriodUpdateView
 from on_call_me.views import OnCallPeriodListView
-
+from on_call_me.views import ManageOnCallListView
+from on_call_me.views import ProcessedListView
 
 
 urlpatterns = [
-    #path('index', views.index, name='index'),
-    #path('', LoginView.as_view(template_name='on_call_me/login.html'), name='no_url_login'),
-    path('email', views.send_test_email, name='email'),
+    path('manage-oncall', ManageOnCallListView.as_view(), name='manage-oncall'),
+    path('process-oncall', views.process_oncall, name='process-oncall'),
+    path('processed-list', ProcessedListView.as_view(), name='processed-list'),
     path('weekly-email', views.weekly_email, name='weekly_email'),
     path('', LoginView.as_view(template_name='on_call_me/login.html', authentication_form=LoginForm),
          name='login-home'),

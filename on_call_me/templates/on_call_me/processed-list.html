@@ -40,7 +40,6 @@
                 <th>End Date</th>
                 <th>Week Ending</th>
                 <th>No. Of Days</th>
-                <th>Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -53,7 +52,6 @@
                     <td>{{ oncallperiod.end_date }}</td>
                     <td>{{ oncallperiod.week_ending }}</td>
                     <td>{{ oncallperiod.days }}</td>
-                    <td><a href="{% url 'update-oncallperiod' oncallperiod.id %}"><span class="fa fa-edit"></span></a></td>
                 </tr>
             {% endfor %}
             </tbody>

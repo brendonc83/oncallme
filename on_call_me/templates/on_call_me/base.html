@@ -47,8 +47,13 @@
         {% block header %}
             <nav>
                 <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="{% url 'index' %}">home</a></li>
-                    <li role="presentation"><a href="{% url 'oncallperiod-list' %}">my list</a></li>
+                    <li role="presentation" class="active">
+
+                    {% if request.user.is_staff %}
+                      <li role="presentation" class="{% if request.resolver_match.url_name == "manage-oncall" %}active{% endif %}"><a href="{% url 'manage-oncall' %}">Manage</a></li>
+                    {% endif %}
+                    <li role = "presentation" class="{% if request.resolver_match.url_name == "index" %}active{% endif %}"><a href="{% url 'index' %}">home</a></li>
+                    <li role = "presentation" class="{% if request.resolver_match.url_name == "oncallperiod-list" %}active{% endif %}"><a href="{% url 'oncallperiod-list' %}">my list</a></li>
 
                     {% if user.is_authenticated %}
                         <li role="presentation"><a href="{% url 'logout' %}">logout</a></li>

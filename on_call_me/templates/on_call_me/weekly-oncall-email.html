@@ -1,48 +1,98 @@
 {% load static  %}
 
 
-<html lang="en" xmlns="http://www.w3.org/1999/html" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;font-family: sans-serif;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;font-size: 14px;-webkit-tap-highlight-color: rgba(0,0,0,0);">
-<head style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
-  <meta charset="UTF-8" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
-  <title style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">Email</title>
+<html lang="en" xmlns="http://www.w3.org/1999/html" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-size:14px;-webkit-tap-highlight-color:rgba(0,0,0,0);" >
+<head style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+  <meta charset="UTF-8" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+  <title style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Email</title>
 
-<!--  <link href="{% static '/on_call_me/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+<!--  <link href="{% static '/on_call_me/css/bootstrap.min.css' %}" rel="stylesheet" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" > -->
 
 </head>
+<style style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
 
-<body style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin: 0;padding-top: 20px;padding-bottom: 20px;font-family: &quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif;font-size: 18px;line-height: 1.42857143;color: #333;background-color: #fff;">
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body{margin-top:20px;margin-left:50px;padding-top:5px;padding-bottom:20px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size:18px;line-height:1.42857143;color:#333;background-color:#fff;}
+table{border-spacing:0;border-collapse:collapse;margin-top:20px;margin-left:5%;padding-right:5px;padding-left:5px;width:80%;font-size:14px}
+@media print{
+*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+thead{display:table-header-group;}
+tr{page-break-inside:avoid;}
+.table td,.table th{background-color:#FFFFFF!important;}
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+html{font-size:14px;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+h3{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
+h3{font-size:24px;margin-top:20px;margin-bottom:10px;text-align: left;orphans:3;widows:3;page-break-after:avoid;}
+p{margin-top:10px;margin-bottom:10px;text-align: left;font-size:14px;}
 
-<h3 style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;orphans: 3;widows: 3;page-break-after: avoid;font-family: inherit;font-weight: 500;line-height: 1.1;color: inherit;margin-top: 20px;margin-bottom: 10px;text-align: center;font-size: 24px;">Hi {{ user.first_name }}</h3>
+ul{margin-top:0;margin-bottom:10px;}
+table{background-color:transparent;}
+th{text-align:left;}
+.table>tbody>tr>td,.table>thead>tr>th{padding:8px;line-height:1.42857143;vertical-align:top;border-top:1px solid #ddd;}
+.table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd;}
+.table>thead:first-child>tr:first-child>th{border-top:0;}
+.table-striped>tbody>tr:nth-of-type(odd){background-color:#f9f9f9;}
+.header h3{margin-top:0;margin-bottom:0;line-height:40px;}
 
-<p style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin-top: 10px;margin-bottom: 10px;text-align: center;">This is a test e-mail from oncallme</p>
+</style>
 
-      <table class="table table-striped" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;border-spacing: 0;border-collapse: collapse;padding-right: 15px;padding-left: 15px;width: 70%;margin-left: 15%;margin-right: 15%;font-size: 14px;counter-reset: table;background-color: transparent;">
-            <thead style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;display: table-header-group;">
-            <tr style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;page-break-inside: avoid;">
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">#</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">User ID</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Full Name</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Start Date</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">End Date</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">Week Ending</th>
-                <th style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;text-align: left;padding: 8px;line-height: 1.42857143;vertical-align: bottom;border-top: 1px solid #ddd;border-bottom: 2px solid #ddd;background-color: #FFFFFF!important;">No. Of Days</th>
+
+<body style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:20px;margin-left:50px;padding-top:5px;padding-bottom:20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1.42857143;color:#333;background-color:#fff;" >
+
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" >Hi Payroll,</p>
+
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" >Please find below the standby hours for Core Systems Insurance.</p>
+
+<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" ><b style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Week Ending:</b> {{ week_ending }} </p>
+
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" ><b style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >STANDBY - TECHNOLOGY - CORE SYSTEMS (INSURANCE SYSTEMS)</b></p>
+
+      <table class="table table-striped" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-spacing:0;border-collapse:collapse;margin-top:20px;margin-left:5%;padding-right:5px;padding-left:5px;width:80%;font-size:14px;background-color:transparent;" >
+            <thead style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+            <tr style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >User ID</th>
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >Full Name</th>
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >Start Date</th>
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >End Date</th>
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >Week Ending</th>
+                <th style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;vertical-align:bottom;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#ddd;" >No. Of Hours</th>
             </tr>
             </thead>
-            <tbody style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;">
+            <tbody style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
             {% for oncallperiod in oncallperiodlist %}
-                <tr style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;page-break-inside: avoid;">
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;"></td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.team_member }}</td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.team_member.get_full_name }}</td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.start_date }}</td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.end_date }}</td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.week_ending }}</td>
-                    <td style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding: 8px;line-height: 1.42857143;vertical-align: top;border-top: 1px solid #ddd;background-color: #FFFFFF!important;">{{ oncallperiod.days }}</td>
+                <tr style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.team_member }}</td>
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.team_member.get_full_name }}</td>
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.start_date }}</td>
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.end_date }}</td>
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.week_ending }}</td>
+                    <td style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-left:8px;line-height:1.42857143;vertical-align:top;border-top-width:1px;border-top-style:solid;border-top-color:#ddd;" >{{ oncallperiod.days }}</td>
 
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" ><b style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Compiled by:</b> Brendon Cleary - Ext: 12187</p>
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" ><b style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Authorised by:</b> Daniel De Vries - Ext: 12929</p>
+
+<p style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:10px;margin-bottom:10px;text-align:left;font-size:14px;" >
+<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+Cheers,
+<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+<b style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" ><i style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Brendon Cleary</i></b><br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
+<i style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >Manager Solutions Delivery</i>
+
+
+
+</p>
 
 </body>
 </html>
+
