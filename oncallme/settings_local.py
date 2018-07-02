@@ -130,8 +130,10 @@ STATIC_URL = '/static/'
 
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/index'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

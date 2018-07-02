@@ -1,11 +1,6 @@
-from django.http import HttpResponse
-from django.template import loader
-from django.template import RequestContext
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, FormMixin
+from django.views.generic.edit import CreateView, UpdateView
 from .models import OnCallPeriod
 from .models import User
 from on_call_me.forms import CreateOnCallPeriodsForm
@@ -13,12 +8,8 @@ from on_call_me.forms import UpdateOnCallPeriodsForm
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from datetime import date, timedelta
+
 import os
-
-
-@login_required()
-def index(request):
-    return render(request, 'on_call_me/index.html')
 
 
 def oncallperiods(request):
@@ -60,6 +51,7 @@ def send_test_email(request, html_message, context):
 
 
 def process_oncall(request):
+
     if request.method == 'POST':
         selected_values = request.POST.getlist('oncallperiod')
         request.session['selected_values'] = selected_values
